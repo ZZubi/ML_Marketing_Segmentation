@@ -9,7 +9,7 @@ X_test = pd.read_csv('..\\data\\test\\Target_MntWineYear\\X_test.csv', index_col
 y_test = pd.read_csv('..\\data\\test\\Target_MntWineYear\\y_test.csv', index_col=0).squeeze() # Squeeze nos convierte el dataframe y_test a un numpy Series
 
 # Leer modelo entrenado:
-nombre_archivo = '..\\data\\processed\\modelo_xgboost-regression_Target_MntWineYear.pkl'
+nombre_archivo = '..\\models\\modelo_xgboost-regression_Target_MntWineYear.pkl'
 if os.path.exists(nombre_archivo):
     print(f"\nCargando el modelo desde: {nombre_archivo}...")
 

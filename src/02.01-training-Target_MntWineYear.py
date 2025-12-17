@@ -41,7 +41,7 @@ best_model_selected = Pipeline([
 best_model_selected.fit(X_train, y_train)
 
 # Guardar el modelo como fichero pickle:
-nombre_archivo = '..\\data\\processed\\modelo_xgboost-regression_Target_MntWineYear.pkl'
+nombre_archivo = '..\\models\\modelo_xgboost-regression_Target_MntWineYear.pkl'
 
 # 2. Guardar (Serializar) el Modelo
 # ----------------------------------

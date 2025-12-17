@@ -1,0 +1,23 @@
+# Definición del Escalador (MinMaxScaler)
+scaler:
+  class: sklearn.preprocessing.MinMaxScaler
+  params: {} # No se pasan parámetros aquí
+
+# ---
+
+# Definición del Modelo (XGBClassifier)
+model:
+  class: xgboost.XGBClassifier
+  params:
+    objective: "binary:logistic"
+    eval_metric: "logloss"
+    
+    # Nota: 'ratio_balanceo' se ha mantenido como variable, 
+    # se debe sustituir por el valor real o definir su carga en el entorno.
+    scale_pos_weight: ${ratio_balanceo} 
+    
+    random_state: 42
+    n_estimators: 120
+    learning_rate: 0.08
+    max_depth: 3
+    subsample: 0.8

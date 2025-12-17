@@ -10,7 +10,7 @@ X_test = pd.read_csv('..\\data\\test\\Target_Campaign_Responsiveness\\X_test.csv
 y_test = pd.read_csv('..\\data\\test\\Target_Campaign_Responsiveness\\y_test.csv', index_col=0).squeeze() # Squeeze nos convierte el dataframe y_test a un numpy Series
 
 # Leer modelo entrenado:
-nombre_archivo = '..\\data\\processed\\modelo_xgboost-classifier_Target_Campaign_Responsiveness.pkl'
+nombre_archivo = '..\\models\\modelo_xgboost-classifier_Target_Campaign_Responsiveness.pkl'
 if os.path.exists(nombre_archivo):
     print(f"\nCargando el modelo desde: {nombre_archivo}...")
 

@@ -1,0 +1,18 @@
+# Definición del Escalador (MinMaxScaler)
+scaler:
+  class: sklearn.preprocessing.MinMaxScaler
+  # Parámetros por defecto (si se requieren, se declararían aquí)
+  params: {} 
+
+# ---
+
+# Definición del Modelo (XGBRegressor)
+model:
+  class: xgboost.XGBRegressor
+  params:
+    objective: "reg:squarederror"
+    random_state: 42
+    n_estimators: 210
+    learning_rate: 0.08
+    max_depth: 6
+    subsample: 0.75

@@ -46,7 +46,7 @@ best_model_selected = Pipeline([
 best_model_selected.fit(X_train, y_train)
 
 # Guardar el modelo como fichero pickle:
-nombre_archivo = '..\\data\\processed\\modelo_xgboost-classifier_Target_Campaign_Responsiveness.pkl'
+nombre_archivo = '..\\models\\modelo_xgboost-classifier_Target_Campaign_Responsiveness.pkl'
 
 # 2. Guardar (Serializar) el Modelo
 # ----------------------------------
