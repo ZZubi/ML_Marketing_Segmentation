@@ -1,4 +1,62 @@
-# ML_Marketing_Segmentation
+# Proyecto de Segmentación y Predicción de Valor de Clientes
+
+Este repositorio contiene el flujo de trabajo completo para el análisis, procesamiento y modelado de datos de una campaña de marketing. El objetivo es predecir el comportamiento de gasto de los clientes, su respuesta a campañas y segmentarlos para estrategias personalizadas.
+
+## Estructura de Trabajo
+
+El proyecto se estructura en 4 notebooks secuenciales:
+
+### 1. Análisis, Limpieza y Transformación (01-...)
+
+* **Objetivo:** Preparar el "raw data" para el modelado.
+
+* **Acciones:**
+
+    * Carga de datos (marketing_campaign.csv).
+
+    * Limpieza de valores nulos y eliminación de outliers.
+
+    * Feature Engineering: Creación de variables agregadas anuales (ej. MntWinesYear) y binarización de la respuesta a campañas (Target_Campaign_Responsiveness).
+
+    * Output: Generación del dataset limpio clean_data.csv.
+
+### 2. Modelos de Regresión: Gasto en Vino (02-...)
+
+* **Objetivo:** Predecir la cantidad anual que un cliente gastará en vino (Target_MntWinesYear).
+
+* **Modelos evaluados:** XGBoost Regressor, Random Forest y SVM.
+
+* **Proceso:** Optimización de hiperparámetros con GridSearchCV y validación cruzada.
+
+* **Conclusión:** XGBoost ofreció el mejor rendimiento (menor RMSE), identificando las variables más influyentes en el gasto.
+
+### 3. Modelos de Clasificación: Respuesta a Campañas (03-...)
+* **Objetivo:** Predecir la probabilidad de que un cliente acepte una oferta en la próxima campaña (Target_Campaign_Responsiveness).
+
+* **Modelos evaluados:** XGBoost Classifier, Random Forest y SVM.
+
+* **Proceso:** Manejo de clases desbalanceadas y optimización buscando maximizar el Recall (captar a la mayoría de clientes positivos).
+
+* **Conclusión:** Random Forest obtuvo el mejor balance en métricas de sensibilidad (Recall) y precisión global.
+
+### 4. Modelos No Supervisados: Segmentación (04-...)
+* **Objetivo:** Agrupar clientes en perfiles homogéneos sin etiquetas previas.
+
+* **Modelo:** K-Means Clustering.
+
+* **Resultados:**
+
+    * Determinación del número óptimo de clusters (K=4) mediante el método del codo y Silhouette.
+
+    * Visualización 3D de los segmentos.
+
+    * Perfilado: Identificación de grupos de "Alto Valor" (alto gasto y alta respuesta) frente a grupos de bajo engagement.
+
+---
+
+**Stack Tecnológico:** Python, Pandas, Scikit-Learn, XGBoost, Seaborn, Matplotlib.
+
+---
 
 ## CSV file Attributes
 
@@ -36,10 +94,10 @@ Input data obtained from [Kaggle](https://www.kaggle.com/datasets/imakash3011/cu
 
 ### Target variables:
 
-* __[Regression]__ Estimated_wine_amount_spent_per_year; based on input field:
+* __[Regression]__ Target_MntWinesYear; based on input field:
     * MntWines: Amount spent on wine in last 2 years
 
-* __[Classification]__ Promotion_buyer; based on input fields:
+* __[Classification]__ Target_Campaign_Responsiveness; based on input fields:
 
     * AcceptedCmp1: 1 if customer accepted the offer in the 1st campaign, 0 otherwise
     * AcceptedCmp2: 1 if customer accepted the offer in the 2nd campaign, 0 otherwise
